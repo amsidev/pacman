@@ -1,6 +1,6 @@
 # SPEC 02 — Reducción de velocidad de Pac-Man y fantasmas
 
-> **Estado:** Approved
+> **Estado:** Implemented
 > **Depende de:** SPEC 01
 > **Fecha:** 2026-10-28
 > **Objetivo:** Reducir a la mitad la velocidad de Pac-Man y de los fantasmas manteniendo su proporción actual, para que sea más fácil de manejar y obsérvese el comportamiento de cada personalidad.
@@ -44,15 +44,15 @@ La crucial es que ambas sigan siendo de la forma `1/N`: el movimiento acumula po
 
 ## Criterios de aceptación
 
-- [ ] Al abrir `src/index.html` la consola no tiene errores.
-- [ ] `PACMAN_SPEED` es `0.0625` y `GHOST_SPEED` es `0.05`; no existe ningún otro valor de velocidad en el código.
-- [ ] Pac-Man recorre una celda en 16 frames (~0,27 s a 60 fps).
-- [ ] Cada fantasma recorre una celda en 20 frames (~0,33 s a 60 fps); los cuatro a la misma velocidad.
-- [ ] La proporción fantasma/Pac-Man sigue siendo 0,8 como antes del cambio.
-- [ ] Pac-Man gira justo en la celda de los cruces y se detiene pegado al muro al chocar, sin desbordar la celda.
-- [ ] Tras varios cambios de dirección, los fantasmas siguen alineados a la rejilla y no se atascan en un cruce.
-- [ ] La salida escalonada de la caseta sigue produciéndose a los 2/4/6 s (`EXIT_DELAYS` intacto).
-- [ ] Partida completa sin regresión: dots a 10 puntos, perder vida al contacto, GANASTE/PERDISTE y reinicio funcionan igual que hoy.
+- [x] Al abrir `src/index.html` la consola no tiene errores.
+- [x] `PACMAN_SPEED` es `0.0625` y `GHOST_SPEED` es `0.05`; no existe ningún otro valor de velocidad en el código.
+- [x] Pac-Man recorre una celda en 16 frames (~0,27 s a 60 fps).
+- [x] Cada fantasma recorre una celda en 20 frames (~0,33 s a 60 fps); los cuatro a la misma velocidad.
+- [x] La proporción fantasma/Pac-Man sigue siendo 0,8 como antes del cambio.
+- [x] Pac-Man gira justo en la celda de los cruces y se detiene pegado al muro al chocar, sin desbordar la celda.
+- [x] Tras varios cambios de dirección, los fantasmas siguen alineados a la rejilla y no se atascan en un cruce.
+- [x] La salida escalonada de la caseta sigue produciéndose a los 2/4/6 s (`EXIT_DELAYS` intacto).
+- [x] Partida completa sin regresión: dots a 10 puntos, perder vida al contacto, GANASTE/PERDISTE y reinicio funcionan igual que hoy.
 
 ## Decisiones
 
