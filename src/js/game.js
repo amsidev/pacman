@@ -17,6 +17,8 @@ const GHOST_SPEED = 0.1;    // 1/10 celda/frame
 const EXIT_DELAYS = { hunter: 0, ambusher: 120, flanker: 240, shy: 360 };
 // Celda de la puerta hacia la que greedy-sale de la pen.
 const DOOR_TARGET = { x: 13, y: 12 };
+// Esquina inferior izquierda: retirada del fantasma timido.
+const SHY_CORNER = { x: 1, y: 29 };
 
 // Crea una partida nueva. Copia MAZE (pristino) a game.grid para poder comer
 // dots sin destruir el original, y reiniciar.
@@ -151,6 +153,13 @@ function decideGhost( game, g ) {
     if ( red ) {
       target = { x: 2 * px - Math.round( red.x ), y: 2 * py - Math.round( red.y ) };
     }
+  } else if ( g.kind === 'shy' ) {
+    // Timido: persigue de lejos; si Pac-Man esta a <= 8 celdas, se retira
+    // a su esquina (abajo-izquierda).
+    const px = Math.round( p.x );
+    const py = Math.round( p.y );
+    const dist = Math.abs( g.x - px ) + Math.abs( g.y - py );
+    target = dist > 8 ? { x: px, y: py } : SHY_CORNER;
   }
 
   if ( target ) {
