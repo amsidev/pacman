@@ -136,6 +136,11 @@ function decideGhost( game, g ) {
     target = DOOR_TARGET; // salir de la caseta por la puerta
   } else if ( g.kind === 'hunter' ) {
     target = { x: Math.round( p.x ), y: Math.round( p.y ) };
+  } else if ( g.kind === 'ambusher' ) {
+    // Emboscada: 4 celdas por delante de Pac-Man segun su direccion.
+    // Puede caer fuera del tablero o en muro: solo se compara distancia.
+    const pd = DIRS[ p.dir ];
+    target = { x: Math.round( p.x ) + pd.x * 4, y: Math.round( p.y ) + pd.y * 4 };
   }
 
   if ( target ) {
