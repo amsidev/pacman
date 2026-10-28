@@ -1,6 +1,6 @@
 # SPEC 01 — Cuatro fantasmas con personalidades propias
 
-> **Estado:** Approved
+> **Estado:** Implemented
 > **Depende de:** ninguna
 > **Fecha:** 2026-10-27
 > **Objetivo:** Reemplazar los 2 fantasmas actuales por 4 con personalidades clásicas del arcade (agresiva, emboscadora, flanqueadora y tímida) y una salida escalonada de la caseta.
@@ -59,18 +59,18 @@ La pen interior (filas 13–15, cols 11–16) aloja los 4 puntos de inicio. Los 
 
 ## Criterios de aceptación
 
-- [ ] Abriendo `src/index.html` sin consola sucia se ven 4 fantasmas: rojo, rosa, cian y naranja.
-- [ ] El color depende de la personalidad (rojo=agresivo, rosa=emboscador, cian=flanqueador, naranja=tímido) y no del orden dentro de `GHOST_STARTS`.
-- [ ] El rojo abandona la caseta en cuanto empieza la partida.
-- [ ] El rosa, el cian y el naranja permanecen parados en su celda 2/4/6 s respectivamente y luego salen por la puerta solos, uno tras otro.
-- [ ] Tras perder una vida, los 4 vuelven a la caseta y repiten la salida escalonada.
-- [ ] Ningún fantasma fuera de la caseta puede re-entrar por la puerta.
-- [ ] El rojo elige en cada cruce la dirección que más reduce la distancia a la celda de Pac-Man (sin U-turn salvo callejón).
-- [ ] Si Pac-Man avanza en línea recta, el rosa toma rutas que lo sitúan por delante de Pac-Man, a diferencia del rojo.
-- [ ] El cian entra a interceptar por un corredor distinto al que usa el rojo en la misma situación.
-- [ ] Acercándose al naranja a ≤ 8 celdas se retira hacia la esquina inferior izquierda; alejándose a > 8 vuelve a perseguir.
-- [ ] Los 4 mantienen la misma velocidad (`GHOST_SPEED`, 0.1 celdas/frame).
-- [ ] Partida completa sin regresión: perder vida al contacto, comer dots a 10 puntos, GANASTE/PERDISTE y reinicio funcionan igual que hoy.
+- [x] Abriendo `src/index.html` sin consola sucia se ven 4 fantasmas: rojo, rosa, cian y naranja.
+- [x] El color depende de la personalidad (rojo=agresivo, rosa=emboscador, cian=flanqueador, naranja=tímido) y no del orden dentro de `GHOST_STARTS`.
+- [x] El rojo abandona la caseta en cuanto empieza la partida.
+- [x] El rosa, el cian y el naranja permanecen parados en su celda 2/4/6 s respectivamente y luego salen por la puerta solos, uno tras otro.
+- [x] Tras perder una vida, los 4 vuelven a la caseta y repiten la salida escalonada.
+- [x] Ningún fantasma fuera de la caseta puede re-entrar por la puerta.
+- [x] El rojo elige en cada cruce la dirección que más reduce la distancia a la celda de Pac-Man (sin U-turn salvo callejón).
+- [x] Si Pac-Man avanza en línea recta, el rosa toma rutas que lo sitúan por delante de Pac-Man, a diferencia del rojo.
+- [x] El cian entra a interceptar por un corredor distinto al que usa el rojo en la misma situación.
+- [x] Acercándose al naranja a ≤ 8 celdas se retira hacia la esquina inferior izquierda; alejándose a > 8 vuelve a perseguir.
+- [x] Los 4 mantienen la misma velocidad (`GHOST_SPEED`, 0.1 celdas/frame).
+- [x] Partida completa sin regresión: perder vida al contacto, comer dots a 10 puntos, GANASTE/PERDISTE y reinicio funcionan igual que hoy.
 
 ## Decisiones
 
