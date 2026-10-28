@@ -141,6 +141,16 @@ function decideGhost( game, g ) {
     // Puede caer fuera del tablero o en muro: solo se compara distancia.
     const pd = DIRS[ p.dir ];
     target = { x: Math.round( p.x ) + pd.x * 4, y: Math.round( p.y ) + pd.y * 4 };
+  } else if ( g.kind === 'flanker' ) {
+    // Flanqueo: reflejo del rojo respecto al punto 2 celdas delante de Pac-Man.
+    // target = 2·punto − celdaDelRojo. Solo se compara distancia.
+    const pd = DIRS[ p.dir ];
+    const px = Math.round( p.x ) + pd.x * 2;
+    const py = Math.round( p.y ) + pd.y * 2;
+    const red = game.ghosts.find( ( gh ) => gh.kind === 'hunter' );
+    if ( red ) {
+      target = { x: 2 * px - Math.round( red.x ), y: 2 * py - Math.round( red.y ) };
+    }
   }
 
   if ( target ) {
